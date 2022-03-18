@@ -48,9 +48,14 @@ Sort::Sort(int size, int min, int max) : size(size) {
         this->vector[i] = min + 1 + rand() % (max - min - 1);
 }
 
-Sort::Sort(const int* vector) {
-   ///////// ??????????????????// nu inteleg ce trebuie facut aici
-   // cerinta: add a constructor that creates the list that needs to be sorted from an initialization list
+Sort::Sort(std::initializer_list<int> list) {
+    this->size = list.size();
+    this->vector = new int[list.size()];
+    std::initializer_list<int>::iterator it = list.begin();
+    for (int i = 0; i < list.size();i++) {
+        this->vector[i] = *it;
+        it++;
+    }
 }
 
 Sort::Sort(const int* vector, int size) : size(size) {
@@ -59,14 +64,17 @@ Sort::Sort(const int* vector, int size) : size(size) {
         this->vector[i] = vector[i];
 }
 
-Sort::Sort(int size, ...) : size(size) {
-    this->vector = new int[size];
-    va_list args;
-    va_start(args, size);
-    for (int i = 0; i < size; i++)
-        this->vector[i] = va_arg(args, int);
-    va_end(args);
-}
+// ACEST CONSTRUCTOR ESTE COMENTAT PENTRU CA EXISTA ALT CONSTRUCTOR MAI SUS 
+// CE PRIMESTE CA PARAMETRU std::initializer_list<int> SI ESTE MEREU APELAT 
+
+//Sort::Sort(int size, ...) : size(size) {
+//    this->vector = new int[size];
+//    va_list args;
+//    va_start(args, size);
+//    for (int i = 0; i < size; i++)
+//        this->vector[i] = va_arg(args, int);
+//    va_end(args);
+//}
 
 Sort::Sort(const char* string) : size(0) {
     

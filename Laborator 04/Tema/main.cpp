@@ -15,7 +15,7 @@ int main()
     S2.BubbleSort(true); // crescator
     S2.Print();
 
-    Sort S3 = { 9, 200, 100, 300, 600, 500, 400, 700, 800, 900 };
+    Sort S3({ 9, 200, 100, 300, 600, 500, 400, 700, 800, 900 });
     S3.QuickSort(); // default descrescator
     S3.Print();
 

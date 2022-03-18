@@ -1,4 +1,7 @@
 #pragma once
+
+#include <initializer_list>
+
 class Sort {
     int* vector;
     int size;
@@ -9,7 +12,7 @@ class Sort {
   public:
     Sort(int size, int min, int max);
 
-    Sort(const int* vector);
+    Sort(std::initializer_list<int> list);
 
     Sort(const int* vector, int size);
 
