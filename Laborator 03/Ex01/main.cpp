@@ -22,4 +22,4 @@ int main() {
     printf("%s\n", Math::Add("b", nullptr));
 
     printf("%s\n", Math::Add(nullptr, nullptr));
-}
+    }
