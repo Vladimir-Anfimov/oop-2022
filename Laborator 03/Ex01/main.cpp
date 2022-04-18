@@ -21,6 +21,5 @@ int main() {
 
     printf("%s\n", Math::Add("b", nullptr));
 
-    if(Math::Add(nullptr, nullptr) != nullptr)
-        printf("%s\n", Math::Add(nullptr, nullptr));
+    printf("%s\n", Math::Add(nullptr, nullptr));
 }
