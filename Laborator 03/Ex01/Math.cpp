@@ -46,11 +46,24 @@ int Math::Add(int count, ...) {
 }
 
 char* Math::Add(const char* x, const char* y) {
-    if (x == nullptr || y == nullptr)
+    if (x == nullptr && y == nullptr)
         return nullptr;
-    char* z = new char[strlen(x) + strlen(y) + 1];
-    strcpy(z, "");
-    strcat(z, x);
-    strcat(z, y);
+
+    char* z;
+    if (x == nullptr) {
+        z = new char[strlen(y) + 1];
+        strcpy(z, y);
+    }
+    else if (y == nullptr) {
+        z = new char[strlen(x) + 1];
+        strcpy(z, x);
+    } else {
+        z = new char[strlen(x) + strlen(y) + 1];
+        strcpy(z, "");
+        strcat(z, x);
+        strcat(z, y);
+        z[strlen(x) + strlen(y) + 1] = '\0';
+    }
+
     return z;
 }

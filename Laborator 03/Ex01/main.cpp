@@ -15,5 +15,12 @@ int main() {
 
     printf("%d \n\n", Math::Add(4, 1, 2, 3, 4));
 
-    printf("%s", Math::Add("hello", "test"));
+    printf("%s\n", Math::Add("hello", "test"));
+
+    printf("%s\n", Math::Add(nullptr, "a"));
+
+    printf("%s\n", Math::Add("b", nullptr));
+
+    if(Math::Add(nullptr, nullptr) != nullptr)
+        printf("%s\n", Math::Add(nullptr, nullptr));
 }
