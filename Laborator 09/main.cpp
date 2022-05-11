@@ -10,6 +10,11 @@ int main() {
 
     m[30] = "Poo";
 
+    Map<int, const char *> t;
+    t[10] = "C++";
+
+    std::cout<<std::boolalpha<<m.Includes(t)<<"\n";
+
     for (auto[key, value, index] : m)
 
     {

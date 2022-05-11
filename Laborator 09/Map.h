@@ -10,8 +10,8 @@ class Map {
     int size;
     int capacity;
     void resize();
-public:
     Pair<T1, T2> *pairs;
+public:
     Map();
     ~Map();
     void Set(T1 key, T2 value);
@@ -19,8 +19,10 @@ public:
     int Count() const;
     void Clear();
     bool Delete(const T1 &key);
-    bool Includes(const Map<T1,T2>& map);
+    bool Includes(Map<T1,T2>& map);
+    Pair<T1,T2> At(int index);
     T2& operator[](const T1 &key);
+
 
     MapIterator<T1, T2> begin();
     MapIterator<T1,T2> end();
@@ -53,7 +55,7 @@ void Map<T1, T2>::resize() {
     auto *new_pairs = new Pair<T1,T2>[capacity];
     for(int i=0;i<size;i++)
         new_pairs[i] = pairs[i];
-//    delete[] pairs;
+    delete[] pairs;
     pairs = new_pairs;
 
 }
@@ -99,12 +101,12 @@ bool Map<T1, T2>::Delete(const T1 &key) {
 }
 
 template<class T1, class T2>
-bool Map<T1, T2>::Includes(const Map<T1, T2> &map) {
+bool Map<T1, T2>::Includes(Map<T1, T2> &map) {
     int matches = 0;
     for(int i=0;i<map.size;i++)
     {
         for(int j=0;j<this->size;j++)
-            if(map.pairs[i].key == this->pairs[j].key && map.pairs[i].value == this->pairs[j].value)
+            if(map.At(i).key == this->pairs[j].key && map.At(i).value == this->pairs[j].value)
                 matches++;
     }
     return matches == map.size;
@@ -131,6 +133,11 @@ MapIterator<T1, T2> Map<T1, T2>::end() {
     MapIterator<T1,T2> tmp;
     tmp.pairs = &pairs[this->size];
     return tmp;
+}
+
+template<class T1, class T2>
+Pair<T1, T2> Map<T1, T2>::At(int index) {
+    return pairs[index];
 }
 
 #endif

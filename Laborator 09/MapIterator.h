@@ -2,12 +2,6 @@
 #define LABORATOR_09_MAPITERATOR_H
 #include "Pair.h"
 
-//template <class T1, class T2>
-//class ExtendedPair: public Pair<T1,T2> {
-//public:
-//    int index;
-//};
-
 template <class T1, class T2>
 class ExtendedPair {
 public:
