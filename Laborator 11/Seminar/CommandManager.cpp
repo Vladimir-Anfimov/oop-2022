@@ -34,6 +34,6 @@ void CommandManager::run() {
             }
         }
 
-        cin >> input;
+        std::getline(cin, input);
     }
 }
